@@ -1,7 +1,9 @@
 from produto import Produto
 from exception_comercio import erro_sem_estoque, erro_sem_produto
 
+# Classe elaborada para armazenar e disponibilizar informações referentes ao estoque de produtos
 class Inventario:
+    # Disponibilidade de cada produto
     carro = 20
     moto = 20
     bicicleta = 20
@@ -17,10 +19,9 @@ class Inventario:
 
     def qtd_bicicletas(self, qtd):
         Inventario.bicicleta += int(qtd)
-        
+   
     def __str__(self):
         return f"Carros: {Inventario.carro}\nMotos: {Inventario.moto}\nBicicletas: {Inventario.bicicleta}"
-
 
 class Vendas(Inventario):
     def __init__(self, qtd_carros, qtd_motos, qtd_bicicletas):
