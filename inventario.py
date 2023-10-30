@@ -3,19 +3,24 @@ import exception_comercio
 
 
 class Inventario:
+    carro = 20
+    moto = 20
+    bicicleta = 20
+    
     def __init__(self):
-        self.carro = 20
-        self.moto = 20
-        self.bicicleta = 20
-   
+        pass
+    
     def qtd_carros(self, qtd):
-        self.carro += qtd
-       
+        Inventario.carro += int(qtd)
+        
     def qtd_motos(self, qtd):
-        self.moto += qtd
-       
+        Inventario.moto += int(qtd)
+        
     def qtd_bicicletas(self, qtd):
-        self.bicicleta += qtd
+        Inventario.bicicleta += int(qtd)
+        
+    def mostrar_inventario(self):
+        print(f"Carros: {Inventario.carro}\nMotos: {Inventario.moto}\nBicicletas: {Inventario.bicicleta}")
 
 
 class Vendas(Inventario):
