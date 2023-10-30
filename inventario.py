@@ -54,7 +54,8 @@ class Vendas(Inventario):
                     Inventario.qtd_bicicletas(Vendas, -int(qtd))
                 else:
                     raise erro_sem_estoque()
-        # Retorna mensagem de indisponibilidade da quantidade solicitada pelo usuário.       
+            else:
+                raise erro_sem_produto()
         except erro_sem_produto as erro:
             return f"{erro_sem_produto.message}"
         except erro_sem_estoque as erro:
