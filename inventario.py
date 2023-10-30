@@ -24,24 +24,32 @@ class Vendas(Inventario):
    
     def venda(self, tipo, qtd):
         try:
+            # Deixando todas as 
             self.tipo = tipo.lower()
             if self.tipo == "carro":
                 if int(qtd) <= Inventario.carro:
                     Inventario.qtd_carros(-int(qtd))
                 else:
                     raise exception_comercio.erro_sem_estoque()
+
             elif self.tipo == "moto":
-                Inventario.qtd_motos(-int(qtd))
+                if int(qtd) <= Inventario.moto:
+                    Inventario.moto(-int(qtd))
+                else:
+                    raise exception_comercio.erro_sem_estoque()
             elif self.tipo == "bicicleta":
-                Inventario.qtd_bicicletas(-int(qtd))
+                if int(qtd) <= Inventario.moto:
+                    Inventario.moto(-int(qtd))
+                else:
+                    raise exception_comercio.erro_sem_estoque()
             else:
                 raise exception_comercio.erro_sem_produto()
 
 
         except exception_comercio.erro_sem_produto as erro:
-            return f"{exception_comercio.erro_sem_produto.message}"
-        except erro_sem_estoque as erro:
-            return f"{exception_comercio.erro_sem_estoqu.message}"
+            return f"{erro.message}"
+        except exception_comercio.erro_sem_estoque as erro:
+            return f"{erro.message}"
    
     def retorno(self, tipo, qtd, quebrado):
         try:
