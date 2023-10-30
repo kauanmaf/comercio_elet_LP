@@ -49,6 +49,8 @@ class Vendas(Inventario):
                     Inventario.qtd_bicicletas(Vendas, -int(qtd))
                 else:
                     raise erro_sem_estoque()
+            else:
+                raise erro_sem_produto()
                 
         except erro_sem_produto as erro:
             return f"{erro_sem_produto.message}"
