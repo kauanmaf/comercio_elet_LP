@@ -34,7 +34,7 @@ class Vendas(Inventario):
         try:
             self.tipo = tipo.lower()
         except:
-            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
+            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta!")
             
         if quebrado:
             pass
