@@ -1,8 +1,8 @@
 class Inventario:
     def __init__(self):
         self.carro = 20
-        self.carro = 20
-        self.carro = 20
+        self.moto = 20
+        self.bicicleta = 20
     
     def qtd_carros(self, qtd):
         self.carro += qtd
