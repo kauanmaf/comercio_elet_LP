@@ -1,4 +1,3 @@
-# from exception_comercio import erro_sem_produto
 from produto import Produto
 import exception_comercio
 class Inventario:

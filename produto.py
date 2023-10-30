@@ -1,4 +1,3 @@
-import exception
 
 class Produto:
     codigo = 0
