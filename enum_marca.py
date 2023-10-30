@@ -1,4 +1,3 @@
-import Produto
 from enum import Enum
 
 # Classe que contém as enumerações das marcas de bicicleta

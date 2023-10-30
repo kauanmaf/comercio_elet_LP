@@ -41,12 +41,12 @@ class Vendas(Inventario):
                     raise erro_sem_estoque()
             elif self.tipo == "moto":
                 if Inventario.moto - int(qtd) >= 0:
-                    Inventario.qtd_carros(Vendas, -int(qtd))
+                    Inventario.qtd_motos(Vendas, -int(qtd))
                 else:
                     raise erro_sem_estoque()
             elif self.tipo == "bicicleta":
                 if Inventario.bicicleta - int(qtd) >= 0:
-                    Inventario.qtd_carros(Vendas, -int(qtd))
+                    Inventario.qtd_bicicletas(Vendas, -int(qtd))
                 else:
                     raise erro_sem_estoque()
                 
