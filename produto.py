@@ -1,5 +1,3 @@
-from random import choice, sample
-
 class Produto:
     codigo = 0
     
@@ -21,9 +19,3 @@ class Bicicleta(Produto):
     def __init__(self):
         super().__init__()
         self.codigo = "B" + str(Produto.codigo)
-
-moto = Moto()
-print(moto.codigo)
-
-moto2 = Carro()
-print(moto2.codigo)
