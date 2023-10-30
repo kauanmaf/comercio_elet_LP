@@ -26,23 +26,29 @@ class Inventario:
 class Vendas(Inventario):
     def __init__(self):
         super().__init__()
+        super().qtd_carros(qtd)
+        super().qtd_motos(qtd)
+        super().qtd_bicicletas(qtd)
    
     def venda(self, tipo, qtd):
         try:
             self.tipo = tipo.lower()
             if self.tipo == "carro":
-                if int(qtd) <= Inventario.carro:
-                    Inventario.qtd_carros(-int(qtd))
-                else:
-                    raise exception_comercio.erro_sem_estoque()
-            elif self.tipo == "moto":
-                Inventario.qtd_motos(-int(qtd))
-            elif self.tipo == "bicicleta":
-                Inventario.qtd_bicicletas(-int(qtd))
+            if Inventario.carro - int(qtd) >= 0:
+                Inventario.qtd_carros(Vendas, -int(qtd))
             else:
-                raise exception_comercio.erro_sem_produto()
-
-
+                raise exception_comercio.erro_sem_estoque()
+        elif self.tipo == "moto":
+            if Inventario.moto - int(qtd) >= 0:
+                Inventario.qtd_carros(Vendas, -int(qtd))
+            else:
+                raise exception_comercio.erro_sem_estoque()
+        elif self.tipo == "bicicleta":
+            if Inventario.bicicleta - int(qtd) >= 0:
+                Inventario.qtd_carros(Vendas, -int(qtd))
+            else:
+                raise exception_comercio.erro_sem_estoque()
+                
         except exception_comercio.erro_sem_produto as erro:
             return f"{exception_comercio.erro_sem_produto.message}"
         except erro_sem_estoque as erro:
@@ -60,14 +66,16 @@ class Vendas(Inventario):
             Vendas.reposicao(self, tipo, qtd)
            
     def reposicao(self, tipo, qtd):
+        qtd = int(qtd)
+
+        if tipo == "carro":
+            self.qtd_carros(qtd)
+        elif tipo == "moto":
+            self.qtd_motos(qtd)
+        elif tipo == "bicicleta":
+            self.qtd_bicicletas(qtd)
+            
         try:
             self.tipo = tipo.lower()
-        except:
+        except str(tipo) != "carro" and str(tipo) != "moto" and str(tipo) != "bicicleta":
             print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
-           
-        if self.tipo == "carro":
-            Inventario.qtd_carros(qtd)
-        elif self.tipo == "moto":
-            Inventario.qtd_motos(qtd)
-        elif self.tipo == "bicicleta":
-            Inventario.qtd_bicicletas(qtd)
