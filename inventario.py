@@ -57,9 +57,9 @@ class Vendas(Inventario):
             else:
                 raise erro_sem_produto()
         except erro_sem_produto as erro:
-            return f"{erro_sem_produto.message}"
+            return f"{erro.message}"
         except erro_sem_estoque as erro:
-            return f"{erro_sem_estoque.message}"
+            return f"{erro.message}"
     
     # Averigua a possibilidade de retorno do produto.
     def retorno(self, tipo, qtd, quebrado):
