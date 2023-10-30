@@ -2,7 +2,7 @@
 # pegar 
 
 class Erro_sem_estoque(Exception):
-    def __init__(self, message = "Deu Ruim Mané!"):
+    def __init__(self, message = "Deu Ruim, Mané!"):
         self.message = message
         super().__init__(self.message)
 try:

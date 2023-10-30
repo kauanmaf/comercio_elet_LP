@@ -28,7 +28,7 @@ class Vendas(Inventario):
         elif self.tipo == "moto":
             Inventario.qtd_motos(-int(qtd))
         elif self.tipo == "bicicleta":
-            Inventario.qtd_bicicletas(int(-qtd))
+            Inventario.qtd_bicicletas(-int(qtd))
     
     def retorno(self, tipo, qtd, quebrado):
         try:

@@ -1,4 +1,4 @@
-import exception
+from exception import Erro_sem_estoque
 
 class Produto:
     codigo = 0
@@ -25,3 +25,4 @@ class Bicicleta(Produto):
     def __init__(self):
         super().__init__()
         self.codigo = "B" + str(Produto.codigo)
+
