@@ -1,5 +1,7 @@
 from produto import Produto
 import exception_comercio
+
+
 class Inventario:
     def __init__(self):
         self.carro = 20
@@ -14,7 +16,8 @@ class Inventario:
         
     def qtd_bicicletas(self, qtd):
         self.bicicleta += qtd
-        
+
+
 class Vendas(Inventario):
     def __init__(self):
         super().__init__()
@@ -23,13 +26,18 @@ class Vendas(Inventario):
         try:
             self.tipo = tipo.lower()
             if self.tipo == "carro":
-                Inventario.qtd_carros(-int(qtd))
+                if int(qtd) <= Inventario.carro:
+                    Inventario.qtd_carros(-int(qtd))
+                else:
+                    raise exception_comercio.erro_sem_estoque()
             elif self.tipo == "moto":
                 Inventario.qtd_motos(-int(qtd))
             elif self.tipo == "bicicleta":
-                Inventario.qtd_bicicletas(int(-qtd))
+                Inventario.qtd_bicicletas(-int(qtd))
             else:
                 raise exception_comercio.erro_sem_produto() 
+
+
         except exception_comercio.erro_sem_produto as erro:
             return f"{exception_comercio.erro_sem_produto.message}"
         except erro_sem_estoque as erro:
@@ -58,4 +66,3 @@ class Vendas(Inventario):
             Inventario.qtd_motos(qtd)
         elif self.tipo == "bicicleta":
             Inventario.qtd_bicicletas(qtd)
-
