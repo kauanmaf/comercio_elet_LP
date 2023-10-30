@@ -1,3 +1,5 @@
+from produto import Produto
+import exception_comercio
 class Inventario:
     def __init__(self):
         self.carro = 20
@@ -20,6 +22,7 @@ class Vendas(Inventario):
     def venda(self, tipo, qtd):
         try:
             self.tipo = tipo.lower()
+<<<<<<< HEAD
         except str(tipo) != "carro" and str(tipo) != "moto" and str(tipo) != "bicicleta":
             print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
             
@@ -29,6 +32,20 @@ class Vendas(Inventario):
             Inventario.qtd_motos(-int(qtd))
         elif self.tipo == "bicicleta":
             Inventario.qtd_bicicletas(-int(qtd))
+=======
+            if self.tipo == "carro":
+                Inventario.qtd_carros(-int(qtd))
+            elif self.tipo == "moto":
+                Inventario.qtd_motos(-int(qtd))
+            elif self.tipo == "bicicleta":
+                Inventario.qtd_bicicletas(int(-qtd))
+            else:
+                raise exception_comercio.erro_sem_produto() 
+        except exception_comercio.erro_sem_produto as erro:
+            return f"{exception_comercio.erro_sem_produto.message}"
+        except erro_sem_estoque as erro:
+            return f"{exception_comercio.erro_sem_estoqu.message}"
+>>>>>>> 1772f924144b6f90f185f9c5147c31f81da13c0c
     
     def retorno(self, tipo, qtd, quebrado):
         try:
