@@ -18,8 +18,8 @@ class Inventario:
     def qtd_bicicletas(self, qtd):
         Inventario.bicicleta += int(qtd)
         
-    def mostrar_inventario(self):
-        print(f"Carros: {Inventario.carro}\nMotos: {Inventario.moto}\nBicicletas: {Inventario.bicicleta}")
+    def __str__(self):
+        return f"Carros: {Inventario.carro}\nMotos: {Inventario.moto}\nBicicletas: {Inventario.bicicleta}"
 
 
 class Vendas(Inventario):
