@@ -1,9 +1,15 @@
+import exception
+
 class Produto:
     codigo = 0
     
     def __init__(self):
         
-        Produto.codigo += 1    
+        Produto.codigo += 1   
+
+    @staticmethod
+    def total_produtos_count():
+        return Produto.codigo    
         
 class Carro(Produto):
     def __init__(self):
