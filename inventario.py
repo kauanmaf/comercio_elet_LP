@@ -3,10 +3,12 @@ import exception_comercio
 
 
 class Inventario:
-    def __init__(self):
-        self.carro = 20
-        self.moto = 20
-        self.bicicleta = 20
+    carro = 20
+    moto = 20
+    bicicleta = 20
+
+    def __init__(self): 
+        pass
    
     def qtd_carros(self, qtd):
         self.carro += qtd
@@ -27,7 +29,7 @@ class Vendas(Inventario):
             self.tipo = tipo.lower()
             if self.tipo == "carro":
                 if int(qtd) <= Inventario.carro:
-                    Inventario.qtd_carros(-int(qtd))
+                    Inventario.qtd_carros(Vendas, -int(qtd))
                 else:
                     raise exception_comercio.erro_sem_estoque()
             elif self.tipo == "moto":
@@ -39,9 +41,9 @@ class Vendas(Inventario):
 
 
         except exception_comercio.erro_sem_produto as erro:
-            return f"{exception_comercio.erro_sem_produto.message}"
-        except erro_sem_estoque as erro:
-            return f"{exception_comercio.erro_sem_estoqu.message}"
+            return f"{erro.message}"
+        except exception_comercio.erro_sem_estoque as erro:
+            return f"{erro.message}"
    
     def retorno(self, tipo, qtd, quebrado):
         try:

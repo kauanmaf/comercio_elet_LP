@@ -6,13 +6,12 @@ while compras:
     cliente = input("Bem vindo à nossa loja!\n Que ação você quer realizar? (escolha entre 'repor', 'devolver' ou 'comprar').")
 
     tipo = input("Que tipo de produto?").lower()
-    quantidade = input("Quantas unidades?").lower()
+    qtd = input("Quantas unidades?").lower()
 
     if cliente.lower() == "repor":
-        Vendas.reposicao(tipo, quantidade)
+        Vendas.reposicao(Vendas, tipo, qtd)
     elif cliente.lower() == "comprar":
-        vendas = Vendas(quantidade)
-        Vendas.venda(tipo, quantidade)
+        Vendas.venda(Vendas, tipo, qtd)
     elif cliente.lower() == "devolver":
         quebrado = input("O produto está quebrado? Se sim, digite 's'. Caso contrário digite 'n'.")
         if quebrado.lower() == "s":
