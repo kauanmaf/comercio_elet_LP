@@ -20,7 +20,7 @@ class Vendas(Inventario):
     def venda(self, tipo, qtd):
         try:
             self.tipo = tipo.lower()
-        except:
+        except str(tipo) != "carro" and str(tipo) != "moto" and str(tipo) != "bicicleta":
             print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
             
         if self.tipo == "carro":
