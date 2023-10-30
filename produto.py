@@ -10,7 +10,8 @@ class Produto:
     @staticmethod
     def total_produtos_count():
         return Produto.codigo    
-        
+
+# Elaborando os códigos de identificação dos produtos        
 class Carro(Produto):
     def __init__(self):
         super().__init__()

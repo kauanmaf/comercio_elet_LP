@@ -2,8 +2,9 @@ from inventario import Vendas, Inventario
 
 compras = True
 
+# Criando a estrutura de compras
 while compras:
-    cliente = input("Bem vindo à nossa loja!\nQue ação você quer realizar?\n-Repor\n-Devolver\n-Comprar\nInventario\nDigite:")
+    cliente = input("Bem vindo à nossa loja!\nQue ação você quer realizar?\n-Repor\n-Devolver\n-Comprar\n-Inventario\nDigite:")
     if cliente.lower() == "inventario":
         print(Inventario())
 
