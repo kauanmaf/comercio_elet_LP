@@ -9,7 +9,7 @@ while compras:
 
     # Mostrando o inventário
     if cliente.lower() == "inventario":
-        print(Inventario())
+        print(f"\n{Inventario()}")
 
     # Repondo os produtos
     elif cliente.lower() == "repor":
