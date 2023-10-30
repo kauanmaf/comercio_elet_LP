@@ -9,10 +9,9 @@ while compras:
     quantidade = input("Quantas unidades?").lower()
 
     if cliente.lower() == "repor":
-        Vendas.reposicao(tipo, quantidade)
+        Vendas.reposicao(Vendas, tipo, quantidade)
     elif cliente.lower() == "comprar":
-        vendas = Vendas(quantidade)
-        Vendas.venda(tipo, quantidade)
+        Vendas.venda(Vendas, tipo, quantidade)
     elif cliente.lower() == "devolver":
         quebrado = input("O produto está quebrado? Se sim, digite 's'. Caso contrário digite 'n'.")
         if quebrado.lower() == "s":
@@ -25,5 +24,4 @@ while compras:
     if continuar.lower() == "n":
         compras = False
 
-print("Foi um prazer te ter conosco!\n Volte sempre que precisar de um carro, de uma moto ou de uma bicicleta :3")    
-    
+print("Foi um prazer te ter conosco!\n Volte sempre que precisar de um carro, de uma moto ou de uma bicicleta :3")   
