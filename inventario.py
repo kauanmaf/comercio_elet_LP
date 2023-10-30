@@ -66,7 +66,7 @@ class Vendas(Inventario):
         try:
             self.tipo = tipo.lower()
         except erro_sem_produto as erro:
-            return f"{erro_sem_produto.message}"
+            return f"{erro.message}"
 
         # Se o veículo estiver quebrado, o produto não retorna ao estoque.   
         if quebrado:
@@ -93,4 +93,4 @@ class Vendas(Inventario):
             self.tipo = tipo.lower()
         # Se o produto não possuir nenhum dos tipos anteriores, o veículo não será inserido no estoque.   
         except erro_sem_produto as erro:
-            return f"{erro_sem_produto.message}"
+            return f"{erro.message}"
