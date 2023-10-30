@@ -1,4 +1,4 @@
-# comercio_elet_LP
+# Comércio Eletrônico de LP
 Trabalho de criação de um comércio eletrônico com objetos e classes em python  
 Grupo:   
 Kauan Mariani Ferreira - 231708007  
