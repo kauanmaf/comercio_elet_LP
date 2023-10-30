@@ -10,8 +10,3 @@ class erro_sem_estoque(Exception):
     def __init__(self, message = "Infelizmente não temos o estoque disponível no momento"):
         self.message = message
         super().__init__(self.message)
-
-try:
-    raise erro_sem_produto()
-except erro_sem_produto as erro:
-    print(erro.message)
