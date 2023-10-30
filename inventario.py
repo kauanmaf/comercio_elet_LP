@@ -24,8 +24,33 @@ class Vendas(Inventario):
             print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
             
         if self.tipo == "carro":
+            Inventario.qtd_carros(-int(qtd))
+        elif self.tipo == "moto":
+            Inventario.qtd_motos(-int(qtd))
+        elif self.tipo == "bicicleta":
+            Inventario.qtd_bicicletas(int(-qtd))
+    
+    def retorno(self, tipo, qtd, quebrado):
+        try:
+            self.tipo = tipo.lower()
+        except:
+            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
+            
+        if quebrado:
+            pass
+        else:
+            Vendas.reposicao(self, tipo, qtd)
+            
+    def reposicao(self, tipo, qtd):
+        try:
+            self.tipo = tipo.lower()
+        except:
+            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
+            
+        if self.tipo == "carro":
             Inventario.qtd_carros(qtd)
         elif self.tipo == "moto":
             Inventario.qtd_motos(qtd)
         elif self.tipo == "bicicleta":
             Inventario.qtd_bicicletas(qtd)
+
