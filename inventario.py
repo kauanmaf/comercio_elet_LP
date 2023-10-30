@@ -57,8 +57,8 @@ class Vendas(Inventario):
     def retorno(self, tipo, qtd, quebrado):
         try:
             self.tipo = tipo.lower()
-        except:
-            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta!")
+        except exception_comercio.erro_sem_produto as erro:
+            return f"{exception_comercio.erro_sem_produto.message}"
            
         if quebrado:
             pass
@@ -77,5 +77,5 @@ class Vendas(Inventario):
             
         try:
             self.tipo = tipo.lower()
-        except str(tipo) != "carro" and str(tipo) != "moto" and str(tipo) != "bicicleta":
-            print("Não temos esse tipo de produto por aqui.\n Escolha entre carro, moto ou bicicleta")
+        except exception_comercio.erro_sem_produto as erro:
+            return f"{exception_comercio.erro_sem_produto.message}"
