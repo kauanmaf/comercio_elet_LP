@@ -3,7 +3,7 @@ from inventario import Vendas, Inventario
 compras = True
 
 while compras:
-    cliente = input("Bem vindo à nossa loja!\n Que ação você quer realizar? (escolha entre 'repor', 'devolver' ou 'comprar').")
+    cliente = input("Bem vindo à nossa loja!\nQue ação você quer realizar?\n-Repor\n-Devolver\n-Comprar\nDigite:")
 
     tipo = input("Que tipo de produto?").lower()
     quantidade = input("Quantas unidades?").lower()
