@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+from exception import Erro_sem_estoque
+=======
+>>>>>>> 1772f924144b6f90f185f9c5147c31f81da13c0c
 
 class Produto:
     codigo = 0
@@ -24,3 +28,4 @@ class Bicicleta(Produto):
     def __init__(self):
         super().__init__()
         self.codigo = "B" + str(Produto.codigo)
+
