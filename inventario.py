@@ -80,13 +80,13 @@ class Vendas(Inventario):
         try:
             # Reposição de carro. 
             if tipo == "carro":
-                self.qtd_carros(qtd)
+                self.qtd_carros(Vendas, qtd)
             # Reposição de moto.    
             elif tipo == "moto":
-                self.qtd_motos(qtd)
+                self.qtd_motos(Vendas, qtd)
             # Reposição de bicicleta    
             elif tipo == "bicicleta":
-                self.qtd_bicicletas(qtd)
+                self.qtd_bicicletas(Vendas, qtd)
             else:
                 raise erro_sem_produto()
         # Se o produto não possuir nenhum dos tipos anteriores, o veículo não será inserido no estoque.   

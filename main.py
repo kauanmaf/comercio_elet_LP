@@ -19,7 +19,7 @@ while compras:
         quantidade = input("\nQuantas unidades? ").lower()
         
         # Chamando o método para adicionar
-        Vendas.reposicao(tipo, quantidade)
+        Vendas.reposicao(Vendas, tipo, quantidade)
     
     # Método para comprar
     elif cliente.lower() == "comprar":
