@@ -5,7 +5,7 @@ compras = True
 # Criando a estrutura de compras
 while compras:
     # Colocando opções para o cliente
-    cliente = input("\nBem vindo à nossa loja!\n\nQue ação você quer realizar?\n\n-Repor\n-Devolver\n-Comprar\n-Inventario\n\nDigite:")
+    cliente = input("\nBem vindo à nossa loja!\n\nQue ação você quer realizar?\n\n-Comprar (para comprar um produto)\n-Devolver (para devolver um produto)\n-Repor (para adicionar produtos no estoque)\n-Inventario (para mostrar os produtos disponíveis) \n\nDigite:")
 
     # Mostrando o inventário
     if cliente.lower() == "inventario":
