@@ -1,5 +1,5 @@
 from produto import Produto
-from exception_comercio import erro_sem_estoque, erro_sem_produto
+from exception_comercio import erro_sem_estoque, erro_sem_produto, erro_repor_negativo
 
 # Classe elaborada para armazenar e disponibilizar informações referentes ao estoque de produtos.
 class Inventario:
@@ -78,6 +78,8 @@ class Vendas(Inventario):
         qtd = int(qtd)
         self.tipo = tipo.lower()
         try:
+            if qtd < 0:
+                raise erro_repor_negativo()
             # Reposição de carro. 
             if tipo == "carro":
                 self.qtd_carros(Vendas, qtd)
@@ -91,4 +93,6 @@ class Vendas(Inventario):
                 raise erro_sem_produto()
         # Se o produto não possuir nenhum dos tipos anteriores, o veículo não será inserido no estoque.   
         except erro_sem_produto as erro:
+            print(f"{erro.message}")
+        except erro_repor_negativo as erro:
             print(f"{erro.message}")
