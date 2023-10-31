@@ -67,9 +67,10 @@ class Vendas(Inventario):
             self.tipo = tipo.lower()
         except erro_sem_produto as erro:
             print( f"{erro.message}")
- 
+        # Se o veículo estiver quebrado, o produto não retorna ao inventário.
         if quebrado:
             pass
+        # Caso contrário, o produto volta ao inventário.
         else:
             Vendas.reposicao(self, tipo, qtd)
 
