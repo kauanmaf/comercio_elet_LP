@@ -78,19 +78,19 @@ class Vendas(Inventario):
     # Realiza a reposição do produto.      
     def reposicao(self, tipo, qtd):
         qtd = int(qtd)
-
-        # Reposição de carro. 
-        if tipo == "carro":
-            self.qtd_carros(qtd)
-        # Reposição de moto.    
-        elif tipo == "moto":
-            self.qtd_motos(qtd)
-        # Reposição de bicicleta    
-        elif tipo == "bicicleta":
-            self.qtd_bicicletas(qtd)
-            
+        self.tipo = tipo.lower()
         try:
-            self.tipo = tipo.lower()
+            # Reposição de carro. 
+            if tipo == "carro":
+                self.qtd_carros(qtd)
+            # Reposição de moto.    
+            elif tipo == "moto":
+                self.qtd_motos(qtd)
+            # Reposição de bicicleta    
+            elif tipo == "bicicleta":
+                self.qtd_bicicletas(qtd)
+            else:
+                raise erro_sem_produto()
         # Se o produto não possuir nenhum dos tipos anteriores, o veículo não será inserido no estoque.   
         except erro_sem_produto as erro:
             print(f"{erro.message}")
