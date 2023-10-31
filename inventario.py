@@ -61,17 +61,15 @@ class Vendas(Inventario):
         except erro_sem_estoque as erro:
             print(f"{erro.message}")
     
-    # Averigua a possibilidade de retorno do produto.
+    # Averigua o pedido de retorno do produto.
     def retorno(self, tipo, qtd, quebrado):
         try:
             self.tipo = tipo.lower()
         except erro_sem_produto as erro:
             print( f"{erro.message}")
-
-        # Se o veículo estiver quebrado, o produto não retorna ao estoque.   
+ 
         if quebrado:
             pass
-        # Caso contrário, o produto volta ao estoque.
         else:
             Vendas.reposicao(self, tipo, qtd)
 
@@ -85,7 +83,7 @@ class Vendas(Inventario):
         # Reposição de moto.    
         elif tipo == "moto":
             self.qtd_motos(qtd)
-        # Reposição de bicicleta    
+        # Reposição de bicicleta.    
         elif tipo == "bicicleta":
             self.qtd_bicicletas(qtd)
             
