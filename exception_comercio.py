@@ -16,6 +16,7 @@ class erro_repor_negativo(Exception):
         self.message = message
         super().__init__(self.message)
 
+# Criando erro para quando tentar adicionar um float
 class erro_nao_inteiro(Exception):
     def __init__(self, message = "Você não pode adicionar números não inteiros ao estoque"):
         self.message = message
