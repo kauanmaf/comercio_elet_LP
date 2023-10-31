@@ -12,6 +12,11 @@ class erro_sem_estoque(Exception):
 
 # Criando erro para quando tentar adicionar um numero negativo
 class erro_repor_negativo(Exception):
-    def __init__(self, message = "Você não pode adicionar núemros negativos ao estoque"):
+    def __init__(self, message = "Você não pode adicionar números negativos ao estoque"):
+        self.message = message
+        super().__init__(self.message)
+
+class erro_nao_inteiro(Exception):
+    def __init__(self, message = "Você não pode adicionar números não inteiros ao estoque"):
         self.message = message
         super().__init__(self.message)
