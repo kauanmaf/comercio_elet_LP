@@ -1,5 +1,7 @@
 from produto import Produto
 from exception_comercio import *
+
+
 # Classe elaborada para armazenar e disponibilizar informações referentes ao estoque de produtos.
 class Inventario:
     # Disponibilidade de cada produto.
@@ -90,7 +92,7 @@ class Vendas(Inventario):
             if qtd < 0:
                 raise erro_repor_negativo()
             
-            
+
             # Reposição de carro. 
             if tipo == "carro":
                 self.qtd_carros(Vendas, qtd)
